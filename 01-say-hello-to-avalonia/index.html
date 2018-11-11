@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <title></title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+      
+
+      
+          <link rel="stylesheet" href="https:&#x2F;&#x2F;gsomix.github.io&#x2F;blog&#x2F;site.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="/" class="logo">Blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https://gsomix.github.io/blog/">
+                            Home
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https://gsomix.github.io/blog/&#x2F;categories">
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https://gsomix.github.io/blog/&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;gsomix.github.io&#x2F;blog&#x2F;">Blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https://gsomix.github.io/blog/">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://gsomix.github.io/blog/&#x2F;categories">
+                                    Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://gsomix.github.io/blog/&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://gsomix.github.io/blog/01-say-hello-to-avalonia/#introduction" class="toc-link">Introduction</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://gsomix.github.io/blog/01-say-hello-to-avalonia/#let-s-start" class="toc-link">Let&#x27;s start</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://gsomix.github.io/blog/01-say-hello-to-avalonia/#say-hello" class="toc-link">Say hello</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://gsomix.github.io/blog/01-say-hello-to-avalonia/#visual-designer" class="toc-link">Visual designer</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://gsomix.github.io/blog/01-say-hello-to-avalonia/#conclusion" class="toc-link">Conclusion</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;gsomix.github.io&#x2F;blog&#x2F;01-say-hello-to-avalonia&#x2F;">Say hello to Avalonia</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2017-12-09</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p><em>This article is part of <a href="https://sergeytihon.com/2017/10/22/f-advent-calendar-in-english-2017/">F# Advent calendar in English 2017</a>.</em></p>
+<h2 id="introduction">Introduction</h2>
+<p><a href="http://avaloniaui.net/">Avalonia</a> is a cross-platform UI .NET framework inspired by WPF and built around XAML and bindings. Why use another UI framework, you would ask? F# already has solid WPF-based infrastructure: <a href="https://github.com/fsprojects/FsXaml">FsXAML</a>, <a href="https://github.com/fsprojects/FSharp.ViewModule">FSharp.ViewModule</a> and pretty awesome <a href="https://github.com/ReedCopsey/Gjallarhorn.Bindable/tree/dc8e0ee75db5a428d901f1b826f0ec21b357ca25/src/Gjallarhorn.Bindable.Wpf">Gjallarhorn.Bindable.WPF</a>. There is also <a href="https://developer.xamarin.com/guides/cross-platform/fsharp/fsharp_support_overview/">F# support</a> in Xamarin which allows you write UI applications for mobile devices.</p>
+<p>But what if you need to build a cross-platform desktop applicaton (not Windows-only as in case of WPF)? Maybe you also want to use the modern .NET Core platform? Run the same UI code on mobile devices? Avalonia for the rescue!</p>
+<h2 id="let-s-start">Let's start</h2>
+<p>OK, let's start with an empty console .NET Core application. I usually use .NET Core CLI and wonderful <a href="http://ionide.io/">Ionide</a> extension for code editing (<em>thanks a lot Krzysztof!</em>). Works like a charm.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">$ mkdir avalonia-fsharp-example</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">$ cd avalonia-fsharp-example</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">$ dotnet new console -lang f#</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p>Then add Avalonia packages to the project.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">$ dotnet add package Avalonia</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">$ dotnet add package Avalonia.Desktop</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p>All native dependencies for your platform will be installed automagically.</p>
+<p>Then you need to create the core of our application and initialize Avalonia. Create two files:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#65737e;">// App.fs</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">namespace </span><span style="background-color:#2b303b;color:#8fa1b3;">AvaloniaFsharpExample</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">open </span><span style="background-color:#2b303b;color:#8fa1b3;">Avalonia</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">open </span><span style="background-color:#2b303b;color:#8fa1b3;">Avalonia.Markup.Xaml</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">type </span><span style="background-color:#2b303b;color:#c0c5ce;">App</span><span style="background-color:#2b303b;color:#d08770;">() </span><span style="background-color:#2b303b;color:#b48ead;">=</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#b48ead;">inherit</span><span style="background-color:#2b303b;color:#c0c5ce;"> Application</span><span style="background-color:#2b303b;color:#d08770;">()</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#b48ead;">override </span><span style="background-color:#2b303b;color:#bf616a;">this.Initialize</span><span style="background-color:#2b303b;color:#d08770;">() </span><span style="background-color:#2b303b;color:#b48ead;">=</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">        </span><span style="background-color:#2b303b;color:#c0c5ce;">AvaloniaXamlLoader.Load</span><span style="background-color:#2b303b;color:#b48ead;">(</span><span style="background-color:#2b303b;color:#c0c5ce;">this</span><span style="background-color:#2b303b;color:#b48ead;">)</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre><pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#65737e;">&lt;!-- AvaloniaFsharpExample.App.xaml --&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">Application </span><span style="background-color:#2b303b;color:#d08770;">xmlns</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">https://github.com/avaloniaui</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">Application.Styles</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">StyleInclude </span><span style="background-color:#2b303b;color:#d08770;">Source</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">resm:Avalonia.Themes.Default.DefaultTheme.xaml?assembly=Avalonia.Themes.Default</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;/&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">StyleInclude </span><span style="background-color:#2b303b;color:#d08770;">Source</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">resm:Avalonia.Themes.Default.Accents.BaseLight.xaml?assembly=Avalonia.Themes.Default</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;/&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;/</span><span style="background-color:#2b303b;color:#bf616a;">Application.Styles</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;/</span><span style="background-color:#2b303b;color:#bf616a;">Application</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p>Hopefully you remember how to use OOP features in the F#! <code>App</code> type is the core of the application -- subtype of Avalonia's <code>Application</code> class. Avalonia uses XAML files for UI design: controls, windows, styles and bindings. In 2017, XAML may look a little clunky, but I still found it very convenient for UI design and especially if you already familiar with WPF or Xamarin. So you need to override <code>Initialize</code> method and load <code>App.xaml</code> file containing style settings for our application:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">AvaloniaXamlLoader.Load</span><span style="background-color:#2b303b;color:#b48ead;">(</span><span style="background-color:#2b303b;color:#c0c5ce;">this</span><span style="background-color:#2b303b;color:#b48ead;">)</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p>It loads an appropriate <code>.xaml</code> for our type. I'll describe how it works in the next section. For now you need to create main window of the application.</p>
+<p>In the main window, we are going to show a classical &quot;hello world&quot; text. Let's design it!</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#65737e;">&lt;!-- AvaloniaFsharpExample.MainWindow.xaml --&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">Window </span><span style="background-color:#2b303b;color:#d08770;">xmlns</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">https://github.com/avaloniaui</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">        </span><span style="background-color:#2b303b;color:#d08770;">xmlns:x</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">http://schemas.microsoft.com/winfx/2006/xaml</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">        </span><span style="background-color:#2b303b;color:#d08770;">Title</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">AvaloniaFsharpExample</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">Hello World from Avalonia and F#!</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;/</span><span style="background-color:#2b303b;color:#bf616a;">Window</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p>You also need to load the XAML file into the application:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#65737e;">// MainWindow.fs</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">namespace </span><span style="background-color:#2b303b;color:#8fa1b3;">AvaloniaFsharpExample</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">open </span><span style="background-color:#2b303b;color:#8fa1b3;">Avalonia.Controls</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">open </span><span style="background-color:#2b303b;color:#8fa1b3;">Avalonia.Markup.Xaml</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">type </span><span style="background-color:#2b303b;color:#c0c5ce;">MainWindow </span><span style="background-color:#2b303b;color:#d08770;">() </span><span style="background-color:#2b303b;color:#b48ead;">as</span><span style="background-color:#2b303b;color:#c0c5ce;"> this </span><span style="background-color:#2b303b;color:#b48ead;">=</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#b48ead;">inherit</span><span style="background-color:#2b303b;color:#c0c5ce;"> Window</span><span style="background-color:#2b303b;color:#d08770;">()</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#b48ead;">do</span><span style="background-color:#2b303b;color:#c0c5ce;"> this.InitializeComponent</span><span style="background-color:#2b303b;color:#d08770;">()</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#b48ead;">member </span><span style="background-color:#2b303b;color:#bf616a;">this.InitializeComponent</span><span style="background-color:#2b303b;color:#d08770;">() </span><span style="background-color:#2b303b;color:#b48ead;">=</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">        </span><span style="background-color:#2b303b;color:#c0c5ce;">AvaloniaXamlLoader.Load</span><span style="background-color:#2b303b;color:#b48ead;">(</span><span style="background-color:#2b303b;color:#c0c5ce;">this</span><span style="background-color:#2b303b;color:#b48ead;">)</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p>The logic is the same as for <code>App.fs</code> -- we're loading a XAML file during the type initialization. Final step required to unite all the parts of the application is to write a proper entry point:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#65737e;">// Program.fs</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">open </span><span style="background-color:#2b303b;color:#8fa1b3;">System</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">open </span><span style="background-color:#2b303b;color:#8fa1b3;">Avalonia</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">open </span><span style="background-color:#2b303b;color:#8fa1b3;">AvaloniaFsharpExample</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#96b5b4;">[&lt;EntryPoint&gt;]</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#b48ead;">let </span><span style="background-color:#2b303b;color:#bf616a;">main argv </span><span style="background-color:#2b303b;color:#b48ead;">=</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">AppBuilder.Configure</span><span style="background-color:#2b303b;color:#b48ead;">&lt;</span><span style="background-color:#2b303b;color:#c0c5ce;">App</span><span style="background-color:#2b303b;color:#b48ead;">&gt;</span><span style="background-color:#2b303b;color:#d08770;">()</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">        </span><span style="background-color:#2b303b;color:#c0c5ce;">.UsePlatformDetect</span><span style="background-color:#2b303b;color:#d08770;">()</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">        </span><span style="background-color:#2b303b;color:#c0c5ce;">.Start</span><span style="background-color:#2b303b;color:#b48ead;">&lt;</span><span style="background-color:#2b303b;color:#c0c5ce;">MainWindow</span><span style="background-color:#2b303b;color:#b48ead;">&gt;</span><span style="background-color:#2b303b;color:#d08770;">()</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#d08770;">0</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p>Just as simple as &quot;configure app using appropriate backend and then start with <code>MainWindow</code>&quot;. What does mean &quot;backend&quot;? At the lowest level, Avalonia uses different subsystems to work with windows and draw controls on them. Those parts are platform specific, but backend can be automagically detected. You can read more about Avalonia's architecture in the <a href="http://avaloniaui.net/spec/architecture.html">documentation</a> (a little outdated).</p>
+<h2 id="say-hello">Say hello</h2>
+<p>So, can we finally run the application? Not yet. <code>AvaloniaXamlLoader</code> that we see before in the <code>App</code> and <code>MainWindow</code> types requires our XAML files to be placed in the binary resource section. To do that, we should to add <code>&lt;EmbeddedResource&gt;</code> items to our project:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">ItemGroup</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">EmbeddedResource </span><span style="background-color:#2b303b;color:#d08770;">Include</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">AvaloniaFsharpExample.MainWindow.xaml</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">      </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">LogicalName</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;AvaloniaFsharpExample.MainWindow.xaml&lt;/</span><span style="background-color:#2b303b;color:#bf616a;">LogicalName</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;/</span><span style="background-color:#2b303b;color:#bf616a;">EmbeddedResource</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">EmbeddedResource </span><span style="background-color:#2b303b;color:#d08770;">Include</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">AvaloniaFsharpExample.App.xaml</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">      </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">LogicalName</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;AvaloniaFsharpExample.App.xaml&lt;/</span><span style="background-color:#2b303b;color:#bf616a;">LogicalName</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;/</span><span style="background-color:#2b303b;color:#bf616a;">EmbeddedResource</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;/</span><span style="background-color:#2b303b;color:#bf616a;">ItemGroup</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p>In the resource section, these names should be formated as <code>[namespace].[type].xaml</code>, e.g. <code>AvaloniaFsharpExample.MainWindow.xaml</code>. It seems on Windows and MacOS resource embedding behaviours are different, so you need use both explicit file name and <code>LogicalName</code> in project (<em>I'm going to create issue about it</em>).</p>
+<p>And don't forget to add source code files into project. Remember about the files order!</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">ItemGroup</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">Compile </span><span style="background-color:#2b303b;color:#d08770;">Include</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">MainWindow.fs</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; /&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">Compile </span><span style="background-color:#2b303b;color:#d08770;">Include</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">App.fs</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; /&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">Compile </span><span style="background-color:#2b303b;color:#d08770;">Include</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">Program.fs</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; /&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;/</span><span style="background-color:#2b303b;color:#bf616a;">ItemGroup</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p>Finally we can run it!</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">$ dotnet run</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p>You will see the following window:</p>
+<p><img src="../img/01-window.png" alt="window" /></p>
+<p>Please note if you're MacOS user you need to install <code>gtk+3</code> via <code>brew</code>. It seems this issue is <a href="https://github.com/AvaloniaUI/Avalonia/issues/1294">fixed</a> in the nightly build of Avalonia.</p>
+<p><img src="../img/01-macos.jpg" alt="macos" /></p>
+<h2 id="visual-designer">Visual designer</h2>
+<p>If you're a Visual Studio user, you will probably like <a href="https://marketplace.visualstudio.com/items?itemName=AvaloniaTeam.AvaloniaforVisualStudio">Avalonia for Visual Studio</a> extension. It contains visual designer for Avalonia XAML similar to WPF XAML designer.</p>
+<p>Unfortunately, according to <a href="https://github.com/AvaloniaUI/Avalonia/issues/1134">this issue</a>, XAML designer doesn't yet work on pure .NET Core applications. Therefore, to make it work, you need to add .NET Framework target to our <code>fsproj</code>.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#bf616a;">TargetFrameworks</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;netcoreapp2.0;net461&lt;/</span><span style="background-color:#2b303b;color:#bf616a;">TargetFrameworks</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p>Make sure that you use <code>TargetFramework_s_</code>. Then open project with Visual Studio and you will see following:</p>
+<p><img src="../img/01-vsdesigner.png" alt="Visual Studio designer" /></p>
+<p>That's also possible because of <a href="https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes#fsharpnetcoreimprovements">hard work</a> of Visual F# contributors and MSFT team. Thanks you guys!</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Hope you enjoyed this introductory blog post. In the next articles, we'll see how to write a simple UI and bind it to the underlying data model. We will try to use different programming styles: from OOP and FP perspectives (and get hyped with Gjallarhorn). Stay tuned!</p>
+<p>You can find code in <a href="https://github.com/gsomix/avalonia-fsharp-example">repository</a>.</p>
+<p>I also want to say thanks to <a href="https://github.com/orgs/AvaloniaUI/people">Avalonia team</a> for great job.</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+            
+
+        
+    </div>
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https:&#x2F;&#x2F;gsomix.github.io&#x2F;blog&#x2F;even.js" ></script>
+      
+    </body>
+
+</html>

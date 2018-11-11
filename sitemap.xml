@@ -1,0 +1,44 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+        <url>
+            <loc>https://gsomix.github.io/blog/01-say-hello-to-avalonia/</loc>
+            
+                <lastmod>2017-12-09</lastmod>
+            
+        </url>
+    
+    
+        <url>
+            <loc>https://gsomix.github.io/blog/</loc>
+        </url>
+    
+    
+        
+        <url>
+            <loc>https://gsomix.github.io/blog/tags/</loc>
+        </url>
+        
+        <url>
+            <loc>https://gsomix.github.io/blog/tags/avalonia/</loc>
+        </url>
+        
+        <url>
+            <loc>https://gsomix.github.io/blog/tags/fsharp/</loc>
+        </url>
+        
+        <url>
+            <loc>https://gsomix.github.io/blog/tags/ui/</loc>
+        </url>
+        
+    
+        
+        <url>
+            <loc>https://gsomix.github.io/blog/categories/</loc>
+        </url>
+        
+        <url>
+            <loc>https://gsomix.github.io/blog/categories/fsharp/</loc>
+        </url>
+        
+    
+</urlset>
