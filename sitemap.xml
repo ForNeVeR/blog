@@ -15,6 +15,16 @@
     
         
         <url>
+            <loc>https://gsomix.github.io/blog/categories/</loc>
+        </url>
+        
+        <url>
+            <loc>https://gsomix.github.io/blog/categories/fsharp/</loc>
+        </url>
+        
+    
+        
+        <url>
             <loc>https://gsomix.github.io/blog/tags/</loc>
         </url>
         
@@ -28,16 +38,6 @@
         
         <url>
             <loc>https://gsomix.github.io/blog/tags/ui/</loc>
-        </url>
-        
-    
-        
-        <url>
-            <loc>https://gsomix.github.io/blog/categories/</loc>
-        </url>
-        
-        <url>
-            <loc>https://gsomix.github.io/blog/categories/fsharp/</loc>
         </url>
         
     
