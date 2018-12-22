@@ -7,21 +7,18 @@
             
         </url>
     
+        <url>
+            <loc>https://gsomix.github.io/blog/02-shortest-intro-to-compiler-design/</loc>
+            
+                <lastmod>2018-12-21</lastmod>
+            
+        </url>
+    
     
         <url>
             <loc>https://gsomix.github.io/blog/</loc>
         </url>
     
-    
-        
-        <url>
-            <loc>https://gsomix.github.io/blog/categories/</loc>
-        </url>
-        
-        <url>
-            <loc>https://gsomix.github.io/blog/categories/english/</loc>
-        </url>
-        
     
         
         <url>
@@ -33,11 +30,29 @@
         </url>
         
         <url>
+            <loc>https://gsomix.github.io/blog/tags/compiler/</loc>
+        </url>
+        
+        <url>
             <loc>https://gsomix.github.io/blog/tags/fsharp/</loc>
         </url>
         
         <url>
+            <loc>https://gsomix.github.io/blog/tags/ssa/</loc>
+        </url>
+        
+        <url>
             <loc>https://gsomix.github.io/blog/tags/ui/</loc>
+        </url>
+        
+    
+        
+        <url>
+            <loc>https://gsomix.github.io/blog/categories/</loc>
+        </url>
+        
+        <url>
+            <loc>https://gsomix.github.io/blog/categories/english/</loc>
         </url>
         
     
