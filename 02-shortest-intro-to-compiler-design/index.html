@@ -165,7 +165,7 @@
       <p><em>Authors: Peter Sovietov, Evgeniy Andreev</em></p>
 <p><em>This article is part of <a href="https://sergeytihon.com/2018/10/22/f-advent-calendar-in-english-2018/">F# Advent calendar in English 2018</a>. You may find original article in Russian with Python examples <a href="https://github.com/true-grue/Compiler-Development/wiki/%D0%9A%D1%80%D0%B0%D1%82%D1%87%D0%B0%D0%B9%D1%88%D0%B5%D0%B5-%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B8%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D0%B0-(Python)">here</a>.</em></p>
 <h2 id="introduction">Introduction</h2>
-<p>Let's build a compiler of arithmetic expressions in F#. The compiler should translate source code in <a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">Reverse Polish notation</a> into intermediate representation (IR) suitable for a stack machine. However, we're not going to build an IR interpreter as you might think. We are going to translate IR right into C language code!</p>
+<p>Let's build a compiler of arithmetic expressions in F#. The compiler should translate source code in Reverse Polish notation (<a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">RPN</a>) into intermediate representation (IR) suitable for a stack machine. However, we're not going to build an IR interpreter as you might think. We are going to translate IR right into C language code!</p>
 <h2 id="syntactic-analysis">Syntactic analysis</h2>
 <pre style="background-color:#2b303b;">
 <span style="color:#b48ead;">type </span><span style="color:#c0c5ce;">IR </span><span style="color:#b48ead;">=</span><span style="color:#c0c5ce;">
@@ -339,12 +339,12 @@
 </span></pre>
 <p>The processing of the stack can be modeled through folding. This is a standard way in FP to perform statefull operations:</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">let trans (ir: IR list) =</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">    </span><span style="color:#c0c5ce;">let transInstr (env: Env, code: StringBuilder) = function</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">    </span><span style="color:#c0c5ce;">| Push value -&gt; ...</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">    </span><span style="color:#c0c5ce;">| Op op -&gt; ...</span><span style="color:#c0c5ce;">
+<span style="color:#b48ead;">let </span><span style="color:#bf616a;">trans </span><span style="color:#b48ead;">(</span><span style="color:#bf616a;">ir</span><span style="color:#b48ead;">: </span><span style="color:#c0c5ce;">IR list</span><span style="color:#b48ead;">) =</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">transInstr </span><span style="color:#b48ead;">(</span><span style="color:#bf616a;">env</span><span style="color:#b48ead;">: </span><span style="color:#c0c5ce;">Env</span><span style="color:#b48ead;">,</span><span style="color:#bf616a;"> code</span><span style="color:#b48ead;">: </span><span style="color:#c0c5ce;">StringBuilder</span><span style="color:#b48ead;">) = function</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">|</span><span style="color:#c0c5ce;"> Push value </span><span style="color:#b48ead;">-&gt; </span><span style="color:#65737e;">(* ... *)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">|</span><span style="color:#c0c5ce;"> Op op </span><span style="color:#b48ead;">-&gt; </span><span style="color:#65737e;">(* ... *)</span><span style="color:#c0c5ce;">
 </span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">    </span><span style="color:#c0c5ce;">ir |&gt; List.fold transInstr (emptyEnv, StringBuilder())</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">    </span><span style="color:#c0c5ce;">ir </span><span style="color:#b48ead;">|&gt;</span><span style="color:#c0c5ce;"> List.fold transInstr </span><span style="color:#b48ead;">(</span><span style="color:#c0c5ce;">emptyEnv</span><span style="color:#b48ead;">,</span><span style="color:#c0c5ce;"> StringBuilder</span><span style="color:#d08770;">()</span><span style="color:#b48ead;">)</span><span style="color:#c0c5ce;">
 </span></pre>
 <p>There is also some non-safe code:</p>
 <pre style="background-color:#2b303b;">
@@ -365,7 +365,7 @@
 </span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
 </span><span style="color:#c0c5ce;">}</span><span style="color:#c0c5ce;">
 </span></pre>
-<p>It seems it's a good start for a more complicated compiler, right? We can go with stack languages (also <a href="http://evincarofautumn.blogspot.com/2012/02/why-concatenative-programming-matters.html">concatenative</a>) like Forth, Postscript, Joy or Factor. <a href="https://kittenlang.org/">Even statically typed functional language can be stack-based!</a> Obviously another way is to increase syntax complexity. But let's leave all these questions for later posts. We wish you success in compiler design. Merry Christmas and Happy New year!</p>
+<p>It seems it's a good start for a more complicated compiler, right? We can go with <a href="http://evincarofautumn.blogspot.com/2012/02/why-concatenative-programming-matters.html">stack languages</a>) like Forth, Postscript, Joy or Factor. Even statically typed functional <a href="https://kittenlang.org/">language</a> can be stack-based! Obviously another way is to increase syntax complexity. But let's leave all these questions for later posts. We wish you success in compiler design. Merry Christmas and Happy New year!</p>
 
     </div>
 
